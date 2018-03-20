@@ -9,3 +9,4 @@
 * +Simple 'watch' property let's you know if a prop is changing (vs componentWillReceiveProps)
   
 * Vue templates compile to render functions with JSX
+* Computed properties can cache results of function if nothing has changed
