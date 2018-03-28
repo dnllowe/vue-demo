@@ -16,9 +16,10 @@
 * How easy to get started
 * Configuration
 * Portability
-* Error handling / compile time errors
+* Error handling / compile time errors -- type safety only comes into play through browser console errors. No checking during dev. Not very useful / helpful because it's using templates and strings to create the elements--Typescript can't infer what's going on
 * Accomplishing type safety
 * Elegance / simplicity / intuitiveness of syntax / format
+* Routing view logic is separated from the view itself (defined in an array that's passed to component vs being defined in the view itself)
 
 
 ## Initializing Project
