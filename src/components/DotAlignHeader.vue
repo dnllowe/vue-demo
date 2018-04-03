@@ -1,6 +1,6 @@
 <template>
   <div class='dotalign-header'>
-    <h3>{{ this.header }}</h3>
+    <h3>{{ header }}</h3>
   </div>
 </template>
 
@@ -9,15 +9,18 @@
   import Vue from 'vue'
   import Component from 'vue-class-component'
 
-  @Component ({
-    props: {
-      header: String
-    }
-  })
 
-  class DotAlignHeader extends Vue {
-    name = 'dotalign-header'
-  }
+  const DotAlignHeader = Vue.extend({
+
+    data: function() {
+
+      return {
+        name: 'dotalign-header'
+      }
+    },
+
+    props: ['header']
+  })
 
   export default DotAlignHeader
 

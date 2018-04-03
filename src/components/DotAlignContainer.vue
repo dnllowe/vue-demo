@@ -1,11 +1,10 @@
 <template>
   <div class='dotalign-container'>
+    <span @click="setShowContacts">Contacts</span>
+    <span @click="setShowCompanies">Companies</span>
     <DotAlignHeader v-bind:header="header" />
     <EntityList v-if="showContacts" v-bind:items="contacts" />
     <EntityList v-if="showCompanies" v-bind:items="companies" />
-    <span @click="setShowContacts">Show Contacts</span>
-    <span @click="setShowCompanies">Show Companies</span>
-    <div v-show="showContacts">SHOWING CONTACTS</div>
   </div>
 </template>
 
@@ -13,107 +12,88 @@
 
   // import Vue from 'vue'
   import Vue from 'vue'
-  import Component from 'vue-class-component'
   import DotAlignHeader from './DotAlignHeader.vue'
   import EntityList from './EntityList.vue'
   import Company from '../types/Company'
   import Contact from '../types/Contact'
   import axios from 'axios'
 
-  @Component({
+  const DotAlignContainer = Vue.extend({
+
+    data: function() {
+      return {
+        header: { type: String },
+        contacts: { type: Array },
+        companies: { type: Array },
+        showContacts: { type: Boolean, default: true},
+        showCompanies: { type: Boolean, default: true }
+      }
+    },
+
     components: {
       DotAlignHeader,
       EntityList,
-    }
-  })
+    },
 
-  class DotAlignContainer extends Vue {
-
-    header = ''
-    contacts: Contact[] = []
-    companies: Company[] = []
-    showContacts: boolean
-    showCompanies: boolean
-
-    constructor() {
-      super()
-
-      this.setShowCompanies = this.setShowCompanies.bind(this)
-      this.setShowContacts = this.setShowContacts.bind(this)
-      this.resetInnerView = this.resetInnerView.bind(this)
-    }
-
-    created() {
+    created: function() {
       this.checkRoute()
       this.fetchContacts()
       this.fetchCompanies()
-    }
+    },
 
-    updated() {
+    updated: function() {
       console.log("UPDATING", this)
-    }
+    },
 
-    checkRoute() {
+    methods: {
 
-      switch (window.location.pathname) {
-        case '/dotalign/contacts':
-          this.setHeader('Contacts')
-          this.setShowContacts()
-          break
-        case '/dotalign/companies':
-          this.setHeader('Companies')
-          this.setShowCompanies()
-          break
-        default:
-          this.setHeader('')
-          this.resetInnerView()
-          break
+      setHeader: function(header: string) {
+        this.header = header
+      },
+
+      setShowContacts: function() {
+        this.resetInnerView()
+        this.showContacts = true
+        this.header = 'Contacts'
+      },
+
+      setShowCompanies: function() {
+        this.resetInnerView()
+        this.showCompanies = true
+        this.header = 'Companies'
+      },
+
+      resetInnerView: function() {
+        this.showContacts = false
+        this.showCompanies = false
+        this.header = ''
+      },
+
+      setContacts: function(contacts: Contact[]) {
+        //this.contacts = contacts
+      },
+
+      fetchContacts: function() {
+        return axios.get('https://shielded-everglades-49151.herokuapp.com/api/contacts')
+        .then(res => res.data)
+        .then((response: any) => {
+          this.setContacts(response.contacts)
+        })
+      },
+
+      setCompanies: function(companies: Company[]) {
+        //this.companies = companies
+      },
+
+      fetchCompanies: function() {
+        return axios.get('https://shielded-everglades-49151.herokuapp.com/api/companies')
+        .then(res => res.data)
+        .then((response: any) => {
+          this.setCompanies(response.companies)
+        })
       }
     }
-
-    setHeader(header: string) {
-      this.header = header
-    }
-
-    setShowContacts() {
-      this.resetInnerView()
-      this.showContacts = true
-    }
-
-    setShowCompanies() {
-      this.resetInnerView()
-      this.showCompanies = true
-    }
-
-    resetInnerView() {
-      this.showContacts = false
-      this.showCompanies = false
-    }
-
-    setContacts(contacts: Contact[]) {
-      this.contacts = contacts
-    }
-
-    fetchContacts() {
-      return axios.get('https://shielded-everglades-49151.herokuapp.com/api/contacts')
-      .then(res => res.data)
-      .then((response: any) => {
-        this.setContacts(response.contacts)
-      })
-    }
-
-    setCompanies(companies: Company[]) {
-      this.companies = companies
-    }
-
-    fetchCompanies() {
-      return axios.get('https://shielded-everglades-49151.herokuapp.com/api/companies')
-      .then(res => res.data)
-      .then((response: any) => {
-        this.setCompanies(response.companies)
-      })
-    }
-  }
+  })
 
   export default DotAlignContainer
 

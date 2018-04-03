@@ -7,15 +7,24 @@
   import Vue from 'vue'
   import Component from 'vue-class-component'
 
-  @Component ({
-    props: {
-      text: String
-    }
-  })
+  const EntityListItem = Vue.extend({
 
-  class EntityListItem extends Vue {
-    name = 'dotalign-header'
-  }
+    data: function() {
+      return {
+        name: 'entity-list-item'
+      }
+    },
+
+    // props: ['text']
+
+    props: {
+      text: {
+        type: String,
+        default: '???'
+      }
+    }
+
+  })
 
   export default EntityListItem
 
