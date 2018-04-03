@@ -7,14 +7,18 @@
 <script lang='ts'>
 
   import Vue from 'vue'
+  import Component from 'vue-class-component'
 
-  export default Vue.extend({
-    name: 'dotalign-header',
+  @Component ({
     props: {
-      header: {
-        type: String
-      }
+      header: String
     }
   })
+
+  class DotAlignHeader extends Vue {
+    name = 'dotalign-header'
+  }
+
+  export default DotAlignHeader
 
 </script>
