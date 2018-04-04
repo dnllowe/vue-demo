@@ -28,10 +28,11 @@ li {
   width: 320px;
   padding: 10px; }
 
-.footer-menu {
+.navigation-menu-footer {
   position: fixed;
   width: 320px;
   height: 50px;
-  bottom: 640px;
+  top: 590px;
   color: white;
-  background-color: #1b95bb; }
+  background-color: #1b95bb;
+  z-index: 2; }

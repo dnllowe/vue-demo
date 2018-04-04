@@ -56,13 +56,15 @@ $footer-menu-width: $container-width;
   padding: 10px;
 }
 
-.footer-menu {
+.navigation-menu-footer{
   position: fixed;
   width: $footer-menu-width;
   height: $footer-menu-height;
-  bottom: $container-height;
+  top: $container-height - $footer-menu-height;
 
   color: white;
   background-color: $primary;
+
+  z-index: 2;
 }
 

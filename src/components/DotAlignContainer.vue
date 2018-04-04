@@ -10,10 +10,11 @@
       <EntityList v-if="showContacts" v-bind:items="filteredContacts" />
       <EntityList v-if="showCompanies" v-bind:items="filteredCompanies" />
     </div>
-    <div style="position: absolute; top: 300px;">
+    <NavigationFooter />
+    <!-- <div style="position: absolute; top: 300px;">
       <span @click="setShowContacts">Contacts</span>
       <span @click="setShowCompanies">Companies</span>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -28,12 +29,14 @@
   import SearchBar from './SearchBar.vue'
   import Company from '../classes/Company'
   import Contact from '../classes/Contact'
+  import NavigationFooter from './NavigationFooter.vue'
 
   @Component({
     components: {
       DotAlignHeader,
       EntityList,
-      SearchBar
+      SearchBar,
+      NavigationFooter
     }
   })
 
