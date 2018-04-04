@@ -36,7 +36,8 @@
     calibrateHeight() {
 
       if (this.$el) {
-        const totalHeight = [].concat(this.$el.children)
+
+        const totalHeight = Array.from(this.$el.children)
           .map(child => child.clientHeight)
           .reduce((total, height) => total + height)
 
