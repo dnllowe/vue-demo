@@ -13,7 +13,7 @@
   class Avatar extends Vue {
 
     name: 'avatar'
-    props: AvatarProps = null
+    props: AvatarProps
 
   }
 

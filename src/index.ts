@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import App from './components/App.vue'
 import Home from './components/Home.vue'
-import DotAlignContainer from './components/DotALignContainer.vue'
+import DotAlignContainer from './components/DotAlignContainer.vue'
 
 Vue.use(VueRouter)
 
