@@ -1,5 +1,5 @@
 <template>
-  <i v-bind:class="iconName + 'center bg-primary navigation-tile'" />
+  <i v-bind:class="iconName + ' center bg-primary navigation-tile'" />
 </template>
 
 <script lang='ts'>

@@ -17,7 +17,7 @@
       window.open(
           '/dotalign',
           'detab',
-          'width=320,height=640,left=0,top=0,menubar=no,toolbar=no,locationbar=no,statusbar=no,resizable=no')
+          'width=343,height=640,left=0,top=0,menubar=no,toolbar=no,locationbar=no,statusbar=no,resizable=no,scrollbar=yes')
     }
   }
 

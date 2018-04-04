@@ -1,13 +1,11 @@
 <template>
   <div class='navigation-menu-footer'>
-    <span class='navigation-tile' @click="setShowContacts">
-      <NavigationTile iconName='' />
-      Contacts
-    </span>
-    <span class='navigation-tile' @click="setShowCompanies">
-      <NavigationTile iconName='' />
-      Companies
-    </span>
+    <div class='navigation-tile' @click="setShowContacts">
+      <NavigationTile iconName='fa fa-user' />
+    </div>
+    <div class='navigation-tile' @click="setShowCompanies">
+      <NavigationTile iconName='fa fa-building' />
+    </div>
   </div>
 </template>
 

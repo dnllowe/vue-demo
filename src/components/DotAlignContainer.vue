@@ -4,6 +4,7 @@
     <SearchBar
       v-bind:searchTerm="searchTerm"
       v-on:updateSearchTerm="updateSearchTerm"
+      v-on:resetSearchTerm="resetSearchTerm"
       v-bind:placeholder="searchPlaceholder"
     />
     <div>
@@ -65,11 +66,23 @@
       this.filterCompanies()
     }
 
+    resetSearchTerm() {
+      this.searchTerm = ''
+      this.resetFilters()
+    }
+
+    resetFilters() {
+      this.filteredContacts = this.allContacts;
+      this.filteredCompanies = this.allCompanies;
+    }
+
     filterContacts() {
 
       if (this.searchTerm.length) {
         this.filteredContacts = this.allContacts
-          .filter(contact => contact.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) >= 0)
+          .filter(contact => {
+            return contact.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) >= 0
+            || contact.company.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) >= 0 })
       } else {
         this.filteredContacts = this.allContacts
       }
@@ -94,6 +107,7 @@
       this.showContacts = true
       this.header = 'Contacts'
       this.searchPlaceholder = 'Who are you looking for?'
+      window.scrollTo(0, 0)
     }
 
     setShowCompanies() {
@@ -101,6 +115,8 @@
       this.showCompanies = true
       this.header = 'Companies'
       this.searchPlaceholder = 'Which company are you looking for?'
+      window.scrollTo(0, 0)
+      window.scroll
     }
 
     resetInnerView() {
@@ -108,14 +124,13 @@
       this.showContacts = false
       this.showCompanies = false
 
-      this.filteredContacts = this.allContacts
-      this.filteredCompanies = this.allCompanies
+      this.resetSearchTerm()
 
       this.header = 'Home'
-      this.searchTerm = ''
     }
 
     setContacts(contacts: Contact[]) {
+      contacts = contacts.sort((a, b) => b.score - a.score)
       this.allContacts = contacts
       this.filteredContacts = contacts
     }
@@ -129,6 +144,7 @@
     }
 
     setCompanies(companies: Company[]) {
+      companies = companies.sort((a, b) => b.score - a.score)
       this.allCompanies = companies
       this.filteredCompanies = companies
     }

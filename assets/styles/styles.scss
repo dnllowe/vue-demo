@@ -7,6 +7,11 @@
   margin: 0px;
 }
 
+html {
+  overflow-y: scroll;
+  height: 120%;
+}
+
 // Need to clear img tag styles from BootStrap and Normalizer
 img {}
 
@@ -26,6 +31,7 @@ $tertiary: #ef4b23;
 $white: #FFFFFF;
 $gray: #999999;
 $light-gray: #EEEEEE;
+$dark-gray: #333333;
 
 $container-width: 326px;
 $container-height: 640px;
@@ -36,6 +42,8 @@ $footer-menu-height: $header-height;
 $footer-menu-width: $container-width;
 $score-width: 25px;
 $score-height: 35px;
+$search-bar-height: 25px;
+$search-bar-width: $container-width;
 
 .container-width {
   width: $container-width;
@@ -53,12 +61,15 @@ $score-height: 35px;
   $background-color: $primary;
 }
 
+.dotalign-container {
+}
+
 .dotalign-header {
   position: fixed;
   width: $header-width;
   height: $header-height;
-  color: white;
-  background-color: $primary;
+  color: $dark-gray;
+  background-color: $light-gray;
   text-align: center;
   padding-top: $header-height / 4;
   z-index: 2;
@@ -66,11 +77,12 @@ $score-height: 35px;
 
 .entity-list {
   position: absolute;
-  top: $header-height;
+  top: $header-height + $search-bar-height + 8;
 }
 
 .entity-list-item {
   border-bottom: solid 1px $light-gray;
+  background-color: white;
   width: $container-width;
   height: $entity-list-item-height;
   padding: 18px 10px 10px 10px;
@@ -86,29 +98,60 @@ $score-height: 35px;
   width: $footer-menu-width;
   height: $footer-menu-height;
   top: $container-height - $footer-menu-height;
+  text-align: center;
 
   color: white;
-  background-color: $primary;
+  background-color: $primary-dark;
 
   z-index: 2;
 }
 
 .navigation-tile {
   cursor: pointer;
-  width: $footer-menu-width / 2;
+  display: inline-block;
+  width: 160px;
+  height: $footer-menu-height;
+  background-color: $primary;
+  font-size: 1.25em;
+  line-height: 50px;
 }
 
 .score {
   position: absolute;
   right: 15px;
-  transform: translateY(-11px);
+  transform: translateY(-18px);
   display: inline-block;
   width: $score-width;
   height: $score-height;
   background-color: $primary;
   color: white;
   text-align: center;
-  font-weight: bold;
   line-height: 35px;
 }
 
+.search-bar {
+  position: fixed;
+  top: $header-height;
+  width: $search-bar-width;
+  height: $search-bar-height + 8;
+  padding: 16px 16px 16px 25px;
+  z-index: 2;
+}
+
+@mixin search-bar-icons {
+  position: fixed;
+  top: 61px;
+  color: $light-gray;
+  z-index: 3;
+}
+
+.fa-search {
+  @include search-bar-icons;
+  margin-left: 5px;
+}
+
+.fa-times {
+  @include search-bar-icons;
+  margin-left: $container-width - 20px;
+  cursor: pointer;
+}

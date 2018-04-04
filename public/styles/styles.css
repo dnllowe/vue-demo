@@ -6,6 +6,10 @@
   padding: 0px;
   margin: 0px; }
 
+html {
+  overflow-y: scroll;
+  height: 120%; }
+
 li {
   list-style-type: none; }
 
@@ -22,18 +26,19 @@ li {
   position: fixed;
   width: 326px;
   height: 50px;
-  color: white;
-  background-color: #1b95bb;
+  color: #333333;
+  background-color: #EEEEEE;
   text-align: center;
   padding-top: 12.5px;
   z-index: 2; }
 
 .entity-list {
   position: absolute;
-  top: 50px; }
+  top: 83px; }
 
 .entity-list-item {
   border-bottom: solid 1px #EEEEEE;
+  background-color: white;
   width: 326px;
   height: 64px;
   padding: 18px 10px 10px 10px; }
@@ -47,23 +52,51 @@ li {
   width: 326px;
   height: 50px;
   top: 590px;
+  text-align: center;
   color: white;
-  background-color: #1b95bb;
+  background-color: #10586e;
   z-index: 2; }
 
 .navigation-tile {
   cursor: pointer;
-  width: 163px; }
+  display: inline-block;
+  width: 160px;
+  height: 50px;
+  background-color: #1b95bb;
+  font-size: 1.25em;
+  line-height: 50px; }
 
 .score {
   position: absolute;
   right: 15px;
-  transform: translateY(-11px);
+  transform: translateY(-18px);
   display: inline-block;
   width: 25px;
   height: 35px;
   background-color: #1b95bb;
   color: white;
   text-align: center;
-  font-weight: bold;
   line-height: 35px; }
+
+.search-bar {
+  position: fixed;
+  top: 50px;
+  width: 326px;
+  height: 33px;
+  padding: 16px 16px 16px 25px;
+  z-index: 2; }
+
+.fa-search {
+  position: fixed;
+  top: 61px;
+  color: #EEEEEE;
+  z-index: 3;
+  margin-left: 5px; }
+
+.fa-times {
+  position: fixed;
+  top: 61px;
+  color: #EEEEEE;
+  z-index: 3;
+  margin-left: 306px;
+  cursor: pointer; }

@@ -1,9 +1,15 @@
 <template>
-  <input
-    v-bind:value="searchTerm"
-    v-bind:placeholder="placeholder"
-    @input="updateSearchTerm"
-  />
+  <div>
+
+    <input
+      class='search-bar'
+      v-bind:value="searchTerm"
+      v-bind:placeholder="placeholder"
+      @input="updateSearchTerm"
+    />
+    <i class='fa fa-search' />
+    <i class='fa fa-times' @click="resetSearchTerm"/>
+  </div>
 </template>
 
 <script lang='ts'>
@@ -26,6 +32,11 @@
     @Emit()
     updateSearchTerm(event: any) {
       this.$emit('updateSearchTerm', event.target.value)
+    }
+
+    @Emit()
+    resetSearchTerm(event: any) {
+      this.$emit('resetSearchTerm')
     }
   }
 
