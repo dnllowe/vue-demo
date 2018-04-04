@@ -9,9 +9,18 @@
 li {
   list-style-type: none; }
 
+.container-width {
+  width: 326px; }
+
+.container-height {
+  height: 640px; }
+
+.color-primary {
+  color: #1b95bb; }
+
 .dotalign-header {
   position: fixed;
-  width: 320px;
+  width: 326px;
   height: 50px;
   color: white;
   background-color: #1b95bb;
@@ -25,13 +34,17 @@ li {
 
 .entity-list-item {
   border-bottom: solid 1px #EEEEEE;
-  width: 320px;
-  padding: 10px; }
+  width: 326px;
+  height: 64px;
+  padding: 18px 10px 10px 10px; }
+
+.entity-list-item-detail {
+  font-size: 0.8em;
+  color: #999999; }
 
 .navigation-menu-footer {
-  display: grid;
   position: fixed;
-  width: 320px;
+  width: 326px;
   height: 50px;
   top: 590px;
   color: white;
@@ -39,10 +52,18 @@ li {
   z-index: 2; }
 
 .navigation-tile {
-  cursor: pointer; }
+  cursor: pointer;
+  width: 163px; }
 
 .score {
-  position: relative;
+  position: absolute;
+  right: 15px;
+  transform: translateY(-11px);
+  display: inline-block;
+  width: 25px;
+  height: 35px;
   background-color: #1b95bb;
   color: white;
-  text-align: center; }
+  text-align: center;
+  font-weight: bold;
+  line-height: 35px; }

@@ -27,12 +27,15 @@ $white: #FFFFFF;
 $gray: #999999;
 $light-gray: #EEEEEE;
 
-$container-width: 320px;
+$container-width: 326px;
 $container-height: 640px;
 $header-width: $container-width;
 $header-height: 50px;
+$entity-list-item-height: 64px;
 $footer-menu-height: $header-height;
 $footer-menu-width: $container-width;
+$score-width: 25px;
+$score-height: 35px;
 
 .container-width {
   width: $container-width;
@@ -47,7 +50,7 @@ $footer-menu-width: $container-width;
 }
 
 .bg-primary {
-  $background-color: $primar;
+  $background-color: $primary;
 }
 
 .dotalign-header {
@@ -69,11 +72,16 @@ $footer-menu-width: $container-width;
 .entity-list-item {
   border-bottom: solid 1px $light-gray;
   width: $container-width;
-  padding: 10px;
+  height: $entity-list-item-height;
+  padding: 18px 10px 10px 10px;
+}
+
+.entity-list-item-detail {
+  font-size: 0.8em;
+  color: $gray;
 }
 
 .navigation-menu-footer{
-  display: grid;
   position: fixed;
   width: $footer-menu-width;
   height: $footer-menu-height;
@@ -87,12 +95,20 @@ $footer-menu-width: $container-width;
 
 .navigation-tile {
   cursor: pointer;
+  width: $footer-menu-width / 2;
 }
 
 .score {
-  position: relative;
+  position: absolute;
+  right: 15px;
+  transform: translateY(-11px);
+  display: inline-block;
+  width: $score-width;
+  height: $score-height;
   background-color: $primary;
   color: white;
   text-align: center;
+  font-weight: bold;
+  line-height: 35px;
 }
 

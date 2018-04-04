@@ -4,7 +4,7 @@
     <SearchBar
       v-bind:searchTerm="searchTerm"
       v-on:updateSearchTerm="updateSearchTerm"
-      placeholder="What are you looking for?"
+      v-bind:placeholder="searchPlaceholder"
     />
     <div>
       <EntityList v-if="showContacts" v-bind:items="filteredContacts" />
@@ -43,6 +43,7 @@
 
     header: string = null
     searchTerm: string = null
+    searchPlaceholder: string = null
 
     allContacts: Contact[] = null
     allCompanies: Company[] = null
@@ -92,12 +93,14 @@
       this.resetInnerView()
       this.showContacts = true
       this.header = 'Contacts'
+      this.searchPlaceholder = 'Who are you looking for?'
     }
 
     setShowCompanies() {
       this.resetInnerView()
       this.showCompanies = true
       this.header = 'Companies'
+      this.searchPlaceholder = 'Which company are you looking for?'
     }
 
     resetInnerView() {
@@ -108,7 +111,7 @@
       this.filteredContacts = this.allContacts
       this.filteredCompanies = this.allCompanies
 
-      this.header = ''
+      this.header = 'Home'
       this.searchTerm = ''
     }
 

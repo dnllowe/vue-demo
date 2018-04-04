@@ -2,6 +2,8 @@
   <li class='entity-list-item'>
     <span>{{ entity.name }}</span>
     <span><Score v-bind:score="entity.score"/></span>
+    <br />
+    <span class='entity-list-item-detail'>{{ entity.company ? entity.company.name : null}}</span>
   </li>
 </template>
 
