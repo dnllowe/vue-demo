@@ -29,6 +29,7 @@ li {
   padding: 10px; }
 
 .navigation-menu-footer {
+  display: grid;
   position: fixed;
   width: 320px;
   height: 50px;
@@ -36,3 +37,12 @@ li {
   color: white;
   background-color: #1b95bb;
   z-index: 2; }
+
+.navigation-tile {
+  cursor: pointer; }
+
+.score {
+  position: relative;
+  background-color: #1b95bb;
+  color: white;
+  text-align: center; }

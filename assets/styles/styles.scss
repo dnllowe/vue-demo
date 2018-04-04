@@ -34,6 +34,22 @@ $header-height: 50px;
 $footer-menu-height: $header-height;
 $footer-menu-width: $container-width;
 
+.container-width {
+  width: $container-width;
+}
+
+.container-height {
+  height: $container-height;
+}
+
+.color-primary {
+  color: $primary;
+}
+
+.bg-primary {
+  $background-color: $primar;
+}
+
 .dotalign-header {
   position: fixed;
   width: $header-width;
@@ -57,6 +73,7 @@ $footer-menu-width: $container-width;
 }
 
 .navigation-menu-footer{
+  display: grid;
   position: fixed;
   width: $footer-menu-width;
   height: $footer-menu-height;
@@ -66,5 +83,16 @@ $footer-menu-width: $container-width;
   background-color: $primary;
 
   z-index: 2;
+}
+
+.navigation-tile {
+  cursor: pointer;
+}
+
+.score {
+  position: relative;
+  background-color: $primary;
+  color: white;
+  text-align: center;
 }
 

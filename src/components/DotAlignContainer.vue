@@ -10,11 +10,10 @@
       <EntityList v-if="showContacts" v-bind:items="filteredContacts" />
       <EntityList v-if="showCompanies" v-bind:items="filteredCompanies" />
     </div>
-    <NavigationFooter />
-    <!-- <div style="position: absolute; top: 300px;">
-      <span @click="setShowContacts">Contacts</span>
-      <span @click="setShowCompanies">Companies</span>
-    </div> -->
+    <NavigationFooter
+      v-on:setShowContacts="setShowContacts"
+      v-on:setShowCompanies="setShowCompanies"
+    />
   </div>
 </template>
 
