@@ -1,11 +1,10 @@
 <template>
   <ul>
-    <li v-for="item in items" v-bind:key="item">{{ item }}</li>
-    <!-- <EntityListItem
+    <EntityListItem
       v-for="item in items"
       v-bind:key="item"
-      v-bind:text="item"
-    /> -->
+      v-bind:entity="item"
+    />
   </ul>
 </template>
 
@@ -13,19 +12,24 @@
 
   import Vue from 'vue'
   import Component from 'vue-class-component'
+  import { Prop } from 'vue-property-decorator'
   import EntityListItem from './EntityListItem.vue'
+  import Contact from '../types/Contact'
+  import Company from '../types/Company'
 
-  @Component ({
-    components: { EntityListItem },
-    props: {
-      items: Array
-    }
+  @Component({
+    components:  { EntityListItem }
   })
 
-  class DotAlignHeader extends Vue {
-    name = 'dotalign-header'
+  class EntityList extends Vue {
+
+    name: 'entity-list'
+
+    @Prop()
+    items: Contact[] & Company[]
+
   }
 
-  export default DotAlignHeader
+  export default EntityList
 
 </script>

@@ -1,11 +1,14 @@
 <template>
   <div class='dotalign-container'>
     <DotAlignHeader v-bind:header="header" />
-    <EntityList v-if="showContacts" v-bind:items="contacts" />
-    <EntityList v-if="showCompanies" v-bind:items="companies" />
-    <span @click="setShowContacts">Show Contacts</span>
-    <span @click="setShowCompanies">Show Companies</span>
-    <div v-show="showContacts">SHOWING CONTACTS</div>
+    <div>
+      <EntityList v-if="showContacts" v-bind:items="contacts" />
+      <EntityList v-if="showCompanies" v-bind:items="companies" />
+    </div>
+    <div>
+      <span @click="setShowContacts">Contacts</span>
+      <span @click="setShowCompanies">Companies</span>
+    </div>
   </div>
 </template>
 
@@ -23,52 +26,21 @@
   @Component({
     components: {
       DotAlignHeader,
-      EntityList,
-    }
+      EntityList
+      }
   })
 
   class DotAlignContainer extends Vue {
 
-    header = ''
-    contacts: Contact[] = []
-    companies: Company[] = []
-    showContacts: boolean
-    showCompanies: boolean
-
-    constructor() {
-      super()
-
-      this.setShowCompanies = this.setShowCompanies.bind(this)
-      this.setShowContacts = this.setShowContacts.bind(this)
-      this.resetInnerView = this.resetInnerView.bind(this)
-    }
+    header: string = null
+    contacts: Contact[] = null
+    companies: Company[] = null
+    showContacts = false
+    showCompanies = false
 
     created() {
-      this.checkRoute()
       this.fetchContacts()
       this.fetchCompanies()
-    }
-
-    updated() {
-      console.log("UPDATING", this)
-    }
-
-    checkRoute() {
-
-      switch (window.location.pathname) {
-        case '/dotalign/contacts':
-          this.setHeader('Contacts')
-          this.setShowContacts()
-          break
-        case '/dotalign/companies':
-          this.setHeader('Companies')
-          this.setShowCompanies()
-          break
-        default:
-          this.setHeader('')
-          this.resetInnerView()
-          break
-      }
     }
 
     setHeader(header: string) {
@@ -78,16 +50,19 @@
     setShowContacts() {
       this.resetInnerView()
       this.showContacts = true
+      this.header = 'Contacts'
     }
 
     setShowCompanies() {
       this.resetInnerView()
       this.showCompanies = true
+      this.header = 'Companies'
     }
 
     resetInnerView() {
       this.showContacts = false
       this.showCompanies = false
+      this.header = ''
     }
 
     setContacts(contacts: Contact[]) {
@@ -97,7 +72,7 @@
     fetchContacts() {
       return axios.get('https://shielded-everglades-49151.herokuapp.com/api/contacts')
       .then(res => res.data)
-      .then((response: any) => {
+      .then((response: { contacts: Contact[]}) => {
         this.setContacts(response.contacts)
       })
     }
@@ -109,7 +84,7 @@
     fetchCompanies() {
       return axios.get('https://shielded-everglades-49151.herokuapp.com/api/companies')
       .then(res => res.data)
-      .then((response: any) => {
+      .then((response: { companies: Company[]}) => {
         this.setCompanies(response.companies)
       })
     }
