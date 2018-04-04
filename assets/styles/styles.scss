@@ -45,6 +45,10 @@ $score-height: 35px;
 $search-bar-height: 25px;
 $search-bar-width: $container-width;
 
+.pad-left-50 {
+  padding-left: 50px;
+}
+
 .container-width {
   width: $container-width;
 }
@@ -93,8 +97,7 @@ $search-bar-width: $container-width;
   color: $gray;
 }
 
-.entity-list-item-initials {
-  background-color: gray;
+@mixin entity-list-item-icon {
   position: absolute;
   display: inline-block;
   color: white;
@@ -104,6 +107,16 @@ $search-bar-width: $container-width;
   transform: translateY(-7px);
   text-align: center;
   line-height: 40px;
+}
+
+.entity-list-item-initials {
+  background-color: gray;
+  @include entity-list-item-icon
+}
+
+.entity-list-item-company-avatar {
+  @include entity-list-item-icon;
+  background-color: $primary;
 }
 
 .navigation-menu-footer{

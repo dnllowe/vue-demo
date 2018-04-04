@@ -2,10 +2,10 @@
   <li class='entity-list-item'>
     <span v-if="entity.company" class='entity-list-item-initials'>{{entity.name.split(' ')[0][0] + entity.name.split(' ')[1][0]}}</span>
     <i v-else class='fa fa-building entity-list-item-company-avatar' />
-    <span>{{ entity.name }}</span>
+    <span class='pad-left-50'>{{ entity.name }}</span>
     <span><Score v-bind:score="entity.score"/></span>
     <br />
-    <span class='entity-list-item-detail'>{{ entity.company ? entity.company.name : null}}</span>
+    <span class='entity-list-item-detail pad-left-50'>{{ entity.company ? entity.company.name : null}}</span>
   </li>
 </template>
 
