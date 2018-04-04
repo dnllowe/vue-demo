@@ -42,7 +42,7 @@
 
   class DotAlignContainer extends Vue {
 
-    header: string = null
+    header: string = 'Home'
     searchTerm: string = null
     searchPlaceholder: string = null
 
