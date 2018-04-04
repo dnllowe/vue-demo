@@ -15,7 +15,7 @@
 
     name: 'score'
 
-    @Prop()
+    @Prop(Number)
     score: number
 
   }

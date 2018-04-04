@@ -5,11 +5,11 @@
   "author": "dnllowe <dnllowe@yahoo.com>",
   "license": "MIT",
   "private": true,
-  "main": "./built/server/index.js",
+  "main": "./server/index.js",
   "scripts": {
-    "dev": "nodemon -e js,ts --watch ./public/js ./built/server/index.js",
+    "dev": "NODE_ENV=developement nodemon -e js,ts --watch ./public/js ./server/index.js",
     "build-all": "tsc && webpack",
-    "build-w": "webpack -w",
+    "build-w": "webpack -w --mode development",
     "tsc": "tsc",
     "tsc-w": "tsc -w"
   },

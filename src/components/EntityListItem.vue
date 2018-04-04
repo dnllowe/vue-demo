@@ -8,6 +8,8 @@
   import Component from 'vue-class-component'
   import { Prop } from 'vue-property-decorator'
   import Score from './Score.vue'
+  import Company from '../classes/Company'
+  import Contact from '../classes/Contact'
 
   @Component({
     components: { Score }
@@ -17,8 +19,8 @@
 
     name: 'entity-list-item'
 
-    @Prop()
-    entity: string
+    @Prop([Contact, Company])
+    entity: Company | Contact
 
   }
 

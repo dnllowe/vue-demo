@@ -13,7 +13,7 @@
 
     name: 'navigation-tile'
 
-    @Prop()
+    @Prop(String)
     iconName: string
 
   }

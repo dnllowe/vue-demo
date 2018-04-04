@@ -15,7 +15,7 @@
 
     name: 'dotalign-header'
 
-    @Prop()
+    @Prop(String)
     header: string
 
   }

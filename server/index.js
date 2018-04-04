@@ -15,10 +15,10 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 // Static routes
-app.use(express.static(path.resolve(__dirname, '../../public')))
+app.use(express.static(path.resolve(__dirname, '../public')))
 
-app.use((req: any, res: any) => {
-  res.sendFile(path.resolve(__dirname, '../../public/index.html'))
+app.use((req, res) => {
+  res.sendFile(path.resolve(__dirname, '../public/index.html'))
 })
 
 // Only start server if main module

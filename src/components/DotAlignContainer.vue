@@ -2,7 +2,6 @@
   <div class='dotalign-container'>
     <DotAlignHeader v-bind:header="header" />
     <SearchBar
-      v-bind:searchTerm="searchTerm"
       v-on:updateSearchTerm="updateSearchTerm"
       placeholder="What are you looking for?"
     />
@@ -26,8 +25,8 @@
   import DotAlignHeader from './DotAlignHeader.vue'
   import EntityList from './EntityList.vue'
   import SearchBar from './SearchBar.vue'
-  import Company from '../types/Company'
-  import Contact from '../types/Contact'
+  import Company from '../classes/Company'
+  import Contact from '../classes/Contact'
 
   @Component({
     components: {

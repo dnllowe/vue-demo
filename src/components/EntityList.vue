@@ -2,7 +2,7 @@
   <ul>
     <EntityListItem
       v-for="item in items"
-      v-bind:key="item"
+      v-bind:key="item.id"
       v-bind:entity="item"
     />
   </ul>
@@ -14,8 +14,8 @@
   import Component from 'vue-class-component'
   import { Prop } from 'vue-property-decorator'
   import EntityListItem from './EntityListItem.vue'
-  import Contact from '../types/Contact'
-  import Company from '../types/Company'
+  import Contact from '../classes/Contact'
+  import Company from '../classes/Company'
 
   @Component({
     components:  { EntityListItem }
@@ -25,10 +25,11 @@
 
     name: 'entity-list'
 
-    @Prop()
+    @Prop(Array)
     items: Contact[] & Company[]
 
   }
+
 
   export default EntityList
 

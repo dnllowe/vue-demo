@@ -17,15 +17,12 @@
 
     name: string = 'search-bar'
 
-    @Prop()
+    @Prop(String)
     placeholder: string
 
-    @Prop()
-    searchTerm: string
-
     @Emit()
-    updateSearchTerm() {
-      this.$emit('updateSearchTerm', this.searchTerm)
+    updateSearchTerm(event: any) {
+      this.$emit('updateSearchTerm', event.target.value)
     }
   }
 
