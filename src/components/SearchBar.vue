@@ -1,6 +1,6 @@
 <template>
   <input
-    v-model="searchTerm"
+    v-bind:value="searchTerm"
     v-bind:placeholder="placeholder"
     @input="updateSearchTerm"
   />
@@ -16,6 +16,9 @@
   class SearchBar extends Vue {
 
     name: string = 'search-bar'
+
+    @Prop(String)
+    searchTerm: string
 
     @Prop(String)
     placeholder: string

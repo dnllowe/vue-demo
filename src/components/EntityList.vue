@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class='entity-list'>
     <EntityListItem
       v-for="item in items"
       v-bind:key="item.id"
@@ -25,7 +25,7 @@
 
     name: 'entity-list'
 
-    @Prop(Array)
+    @Prop()
     items: Contact[] & Company[]
 
   }

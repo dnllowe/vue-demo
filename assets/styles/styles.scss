@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  font-family: "Arial";
+  font-weight: normal;
+  font-style: normal;
+  padding: 0px;
+  margin: 0px;
+}
+
+// Need to clear img tag styles from BootStrap and Normalizer
+img {}
+
+li {
+  list-style-type: none;
+}
+
+// VARIABLES
+$primary-light: #33c3f0;
+$primary: #1b95bb;
+$primary-med: #167e9e;
+$primary-dark: #10586e;
+$secondary-light: #f7cb3e;
+$secondary: #f5a91c;
+$secondary-dark: #e4981c;
+$tertiary: #ef4b23;
+$white: #FFFFFF;
+$gray: #999999;
+$light-gray: #EEEEEE;
+
+$container-width: 320px;
+$container-height: 640px;
+$header-width: $container-width;
+$header-height: 50px;
+$footer-menu-height: $header-height;
+$footer-menu-width: $container-width;
+
+.dotalign-header {
+  position: fixed;
+  width: $header-width;
+  height: $header-height;
+  color: white;
+  background-color: $primary;
+  text-align: center;
+  padding-top: $header-height / 4;
+  z-index: 2;
+}
+
+.entity-list {
+  position: absolute;
+  top: $header-height;
+}
+
+.entity-list-item {
+  border-bottom: solid 1px $light-gray;
+  width: $container-width;
+  padding: 10px;
+}
+
+.footer-menu {
+  position: fixed;
+  width: $footer-menu-width;
+  height: $footer-menu-height;
+  bottom: $container-height;
+
+  color: white;
+  background-color: $primary;
+}
+

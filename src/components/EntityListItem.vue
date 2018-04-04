@@ -1,5 +1,8 @@
 <template>
-  <li><span>{{ entity.name }}</span><span><Score v-bind:score="entity.score"/></span></li>
+  <li class='entity-list-item'>
+    <span>{{ entity.name }}</span>
+    <span><Score v-bind:score="entity.score"/></span>
+  </li>
 </template>
 
 <script lang='ts'>
@@ -19,7 +22,7 @@
 
     name: 'entity-list-item'
 
-    @Prop([Contact, Company])
+    @Prop()
     entity: Company | Contact
 
   }

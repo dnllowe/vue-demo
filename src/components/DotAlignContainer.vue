@@ -2,6 +2,7 @@
   <div class='dotalign-container'>
     <DotAlignHeader v-bind:header="header" />
     <SearchBar
+      v-bind:searchTerm="searchTerm"
       v-on:updateSearchTerm="updateSearchTerm"
       placeholder="What are you looking for?"
     />
@@ -9,7 +10,7 @@
       <EntityList v-if="showContacts" v-bind:items="filteredContacts" />
       <EntityList v-if="showCompanies" v-bind:items="filteredCompanies" />
     </div>
-    <div>
+    <div style="position: absolute; top: 300px;">
       <span @click="setShowContacts">Contacts</span>
       <span @click="setShowCompanies">Companies</span>
     </div>
@@ -65,7 +66,7 @@
 
       if (this.searchTerm.length) {
         this.filteredContacts = this.allContacts
-          .filter(contact => contact.name.indexOf(this.searchTerm) >= 0)
+          .filter(contact => contact.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) >= 0)
       } else {
         this.filteredContacts = this.allContacts
       }
@@ -75,7 +76,7 @@
 
       if (this.searchTerm.length) {
         this.filteredCompanies= this.allCompanies
-        .filter(company => company.name.indexOf(this.searchTerm) >= 0)
+        .filter(company => company.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) >= 0)
       } else {
         this.filteredCompanies = this.allCompanies
       }
@@ -98,9 +99,15 @@
     }
 
     resetInnerView() {
+
       this.showContacts = false
       this.showCompanies = false
+
+      this.filteredContacts = this.allContacts
+      this.filteredCompanies = this.allCompanies
+
       this.header = ''
+      this.searchTerm = ''
     }
 
     setContacts(contacts: Contact[]) {

@@ -10,6 +10,8 @@
     "dev": "NODE_ENV=developement nodemon -e js,ts --watch ./public/js ./server/index.js",
     "build-all": "tsc && webpack",
     "build-w": "webpack -w --mode development",
+    "build-css": "node-sass assets/styles/styles.scss -o public/styles",
+    "build-css-w": "node-sass -w assets/styles/styles.scss -o public/styles",
     "tsc": "tsc",
     "tsc-w": "tsc -w"
   },
@@ -18,6 +20,7 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
+    "node-sass": "^4.8.3",
     "nodemon": "^1.17.2",
     "ts-loader": "^4.1.0",
     "typescript": "^2.8.1",

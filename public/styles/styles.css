@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  font-family: "Arial";
+  font-weight: normal;
+  font-style: normal;
+  padding: 0px;
+  margin: 0px; }
+
+li {
+  list-style-type: none; }
+
+.dotalign-header {
+  position: fixed;
+  width: 320px;
+  height: 50px;
+  color: white;
+  background-color: #1b95bb;
+  text-align: center;
+  padding-top: 12.5px;
+  z-index: 2; }
+
+.entity-list {
+  position: absolute;
+  top: 50px; }
+
+.entity-list-item {
+  border-bottom: solid 1px #EEEEEE;
+  width: 320px;
+  padding: 10px; }
+
+.footer-menu {
+  position: fixed;
+  width: 320px;
+  height: 50px;
+  bottom: 640px;
+  color: white;
+  background-color: #1b95bb; }
