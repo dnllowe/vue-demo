@@ -93,6 +93,19 @@ $search-bar-width: $container-width;
   color: $gray;
 }
 
+.entity-list-item-initials {
+  background-color: gray;
+  position: absolute;
+  display: inline-block;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translateY(-7px);
+  text-align: center;
+  line-height: 40px;
+}
+
 .navigation-menu-footer{
   position: fixed;
   width: $footer-menu-width;

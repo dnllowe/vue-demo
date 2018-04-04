@@ -47,6 +47,18 @@ li {
   font-size: 0.8em;
   color: #999999; }
 
+.entity-list-item-initials {
+  background-color: gray;
+  position: absolute;
+  display: inline-block;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translateY(-7px);
+  text-align: center;
+  line-height: 40px; }
+
 .navigation-menu-footer {
   position: fixed;
   width: 326px;

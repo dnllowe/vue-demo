@@ -79,10 +79,24 @@
     filterContacts() {
 
       if (this.searchTerm.length) {
+
         this.filteredContacts = this.allContacts
           .filter(contact => {
-            return contact.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) >= 0
-            || contact.company.name.toLowerCase().indexOf(this.searchTerm.toLowerCase()) >= 0 })
+
+            const lowerCaseContactName = contact.name.toLowerCase()
+            const lowerCaseCompanyName = contact.company.name.toLowerCase()
+            const lowerCaseSearchTerm = this.searchTerm.toLowerCase()
+            const firstAndLastName = lowerCaseContactName.split(' ')
+            let initials = firstAndLastName[0][0]
+
+            if (firstAndLastName[1]) {
+              initials += firstAndLastName[1][0]
+            }
+
+            return lowerCaseContactName.indexOf(lowerCaseSearchTerm) >= 0
+            || lowerCaseCompanyName.indexOf(lowerCaseSearchTerm) >= 0
+            || initials.indexOf(lowerCaseSearchTerm) >= 0 })
+
       } else {
         this.filteredContacts = this.allContacts
       }
