@@ -8,8 +8,9 @@
       v-bind:placeholder="searchPlaceholder"
     />
     <div>
-      <EntityList v-if="showContacts" v-bind:items="filteredContacts" />
-      <EntityList v-if="showCompanies" v-bind:items="filteredCompanies" />
+      <img v-if="!showContacts && !showCompanies" src='/images/vue-logo.png' class='container-logo' />
+      <EntityList v-if="showContacts" v-bind:entities="filteredContacts" />
+      <EntityList v-if="showCompanies" v-bind:entities="filteredCompanies" />
     </div>
     <NavigationFooter
       v-on:setShowContacts="setShowContacts"
@@ -20,7 +21,6 @@
 
 <script lang='ts'>
 
-  // import Vue from 'vue'
   import Vue from 'vue'
   import Component from 'vue-class-component'
   import axios from 'axios'
@@ -42,7 +42,7 @@
 
   class DotAlignContainer extends Vue {
 
-    header: string = 'Home'
+    header = 'Home'
     searchTerm: string = null
     searchPlaceholder: string = null
 
@@ -62,8 +62,14 @@
 
     updateSearchTerm(newSearchTerm: string) {
       this.searchTerm = newSearchTerm
-      this.filterContacts()
-      this.filterCompanies()
+
+      if (this.showContacts) {
+        this.filterContacts()
+      }
+
+      if (this.showCompanies) {
+        this.filterCompanies()
+      }
     }
 
     resetSearchTerm() {

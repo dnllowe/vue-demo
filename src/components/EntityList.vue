@@ -1,9 +1,9 @@
 <template>
   <ul class='entity-list'>
     <EntityListItem
-      v-for="item in items"
-      v-bind:key="item.id"
-      v-bind:entity="item"
+      v-for="entity in entities"
+      v-bind:key="entity.id"
+      v-bind:entity="entity"
     />
   </ul>
 </template>
@@ -46,7 +46,7 @@
     }
 
     @Prop()
-    items: Contact[] & Company[]
+    entities: Contact[] & Company[]
 
   }
 

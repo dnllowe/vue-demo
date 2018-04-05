@@ -65,6 +65,29 @@ $search-bar-width: $container-width;
   $background-color: $primary;
 }
 
+.home {
+  text-align: center;
+}
+
+.home-plus {
+  font-size: 7em;
+  position: relative;
+  top: -50px;
+  margin-left: 20px;
+  margin-right: 40px;
+}
+
+.start-demo {
+  cursor: pointer;
+  background-color: mediumseagreen;
+  border: none;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  font-size: 13pt;
+  margin-top: 50px;
+}
+
 .dotalign-container {
 }
 
@@ -77,6 +100,13 @@ $search-bar-width: $container-width;
   text-align: center;
   padding-top: $header-height / 4;
   z-index: 2;
+}
+
+.container-logo {
+  width: 125px;
+  position: absolute;
+  top: 250px;
+  left: 105px;
 }
 
 .entity-list {

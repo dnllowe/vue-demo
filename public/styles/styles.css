@@ -25,6 +25,26 @@ li {
 .color-primary {
   color: #1b95bb; }
 
+.home {
+  text-align: center; }
+
+.home-plus {
+  font-size: 7em;
+  position: relative;
+  top: -50px;
+  margin-left: 20px;
+  margin-right: 40px; }
+
+.start-demo {
+  cursor: pointer;
+  background-color: mediumseagreen;
+  border: none;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+  font-size: 13pt;
+  margin-top: 50px; }
+
 .dotalign-header {
   position: fixed;
   width: 326px;
@@ -34,6 +54,12 @@ li {
   text-align: center;
   padding-top: 12.5px;
   z-index: 2; }
+
+.container-logo {
+  width: 125px;
+  position: absolute;
+  top: 250px;
+  left: 105px; }
 
 .entity-list {
   position: absolute;

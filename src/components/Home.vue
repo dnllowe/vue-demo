@@ -1,5 +1,11 @@
 <template>
-  <span style='cursor: pointer' @click="openApp">Start DotAlign Vue Demo</span>
+  <div class='home'>
+    <img style='margin-left: 110px; margin-top: 150px;' src='/images/vue-logo.png' />
+    <span class='home-plus'>+</span>
+    <img src='/images/dotalign-logo.png' />
+    <br />
+    <button class='start-demo' style='cursor: pointer' @click="openApp">Start DotAlign Vue Demo</button>
+  </div>
 </template>
 
 
